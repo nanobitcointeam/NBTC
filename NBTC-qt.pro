@@ -27,9 +27,9 @@ UI_DIR = build
 
 BOOST_LIB_PATH=/usr/lib/x86_64-linux-gnu/
 #BOOST_INCLUDE_PATH=/home/server/mxe/usr/x86_64-pc-linux-gnu/include/
-BDB_INCLUDE_PATH=/usr/local/BerkeleyDB.18.1/include
-BDB_LIB_PATH=/usr/local/BerkeleyDB.18.1/lib
-BDB_LIB_SUFFIX=-18.1
+#BDB_INCLUDE_PATH=/usr/local/BerkeleyDB.18.1/include
+#BDB_LIB_PATH=/usr/local/BerkeleyDB.18.1/lib
+#BDB_LIB_SUFFIX=-18.1
 #LIBS+=/usr/local/BerkeleyDB.18.1/lib
 
 
@@ -74,9 +74,9 @@ contains(USE_UPNP, -) {
     count(USE_UPNP, 0) {
         USE_UPNP=1
     }
-    #MINIUPNPC_INCLUDE_PATH=/home/server/mxe/usr/i686-w64-mingw32.static/include
-    #MINIUPNPC_LIB_PATH=/home/server/mxe/usr/i686-w64-mingw32.static/lib
-    DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
+    MINIUPNPC_INCLUDE_PATH=/home/server/mxe/usr/i686-w64-mingw32.static/include
+    MINIUPNPC_LIB_PATH=/home/server/mxe/usr/i686-w64-mingw32.static/lib
+    DEFINES += USE_UPNP=$$USE_UPNP MINIUPNP_STATICLIB 
     INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
     LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
     win32:LIBS += -liphlpapi

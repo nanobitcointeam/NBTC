@@ -188,7 +188,7 @@ void TransactionView::setModel(WalletModel *model)
                 TransactionTableModel::ToAddress, QHeaderView::Stretch);
         transactionView->horizontalHeader()->resizeSection(
                 TransactionTableModel::Amount, 100);
-        transactionView->horizontalHeader()->setStyleSheet( "QHeaderView::section { background-color: #C2C5CC; color:white; border-bottom: 1px solid black; border-width: 1;}" );
+        transactionView->horizontalHeader()->setStyleSheet( "QHeaderView::section { background-color: #1D66A8; color:white; border-bottom: 1px solid black; border-width: 1;}" );
 
     }
 }
