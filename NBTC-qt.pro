@@ -25,12 +25,12 @@ OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
 
-BOOST_LIB_PATH=/usr/lib/x86_64-linux-gnu/
-#BOOST_INCLUDE_PATH=/home/server/mxe/usr/x86_64-pc-linux-gnu/include/
-#BDB_INCLUDE_PATH=/usr/local/BerkeleyDB.18.1/include
-#BDB_LIB_PATH=/usr/local/BerkeleyDB.18.1/lib
-#BDB_LIB_SUFFIX=-18.1
-#LIBS+=/usr/local/BerkeleyDB.18.1/lib
+BOOST_LIB_PATH=/usr/local/opt/boost@1.57/lib
+BOOST_INCLUDE_PATH=/usr/local/opt/boost@1.57/include
+BDB_INCLUDE_PATH=/usr/local/BerkeleyDB.18.1/include
+BDB_LIB_PATH=/usr/local/BerkeleyDB.18.1/lib
+OPENSSL_INCLUDE_PATH=/usr/local/ssl/include
+OPENSSL_LIB_PATH=/usr/local/ssl/lib
 
 
 # use: qmake "RELEASE=1"
@@ -74,8 +74,9 @@ contains(USE_UPNP, -) {
     count(USE_UPNP, 0) {
         USE_UPNP=1
     }
-    MINIUPNPC_INCLUDE_PATH=/home/server/mxe/usr/i686-w64-mingw32.static/include
-    MINIUPNPC_LIB_PATH=/home/server/mxe/usr/i686-w64-mingw32.static/lib
+    MINIUPNPC_INCLUDE_PATH=/usr/local/Cellar/miniupnpc/2.1/include
+    MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/2.1/lib
+
     DEFINES += USE_UPNP=$$USE_UPNP MINIUPNP_STATICLIB 
     INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
     LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
@@ -449,3 +450,6 @@ contains(RELEASE, 1) {
 }
 
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)
+
+DISTFILES += \
+    src/qt/res/icons/nbtc.icns
